@@ -4,7 +4,7 @@ import { Link, Box } from "@chakra-ui/react"
 const Aside = () => {
   return (
     <Box pt={10}>
-      <Link as={RouterLink} to="/" color="white">
+      <Link as={RouterLink} to="/" color="white" pl={6}>
         Home
       </Link>
     </Box>

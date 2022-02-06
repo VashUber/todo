@@ -1,10 +1,19 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import Tasks from "../pages/Tasks"
+import NotFound from "../pages/NotFound"
+import Default from "../layouts/default"
+import Error from "../layouts/Error"
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Tasks />} />
+      <Route path="/" element={<Default />}>
+        <Route index element={<Tasks />} />
+        <Route path="*" element={<Navigate to='/404' />} />
+      </Route>
+      <Route path="/404" element={<Error />}>
+        <Route index element={<NotFound />} />
+      </Route>
     </Routes>
   )
 }
