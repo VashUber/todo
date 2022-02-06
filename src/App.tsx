@@ -1,45 +1,17 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Grid, GridItem } from "@chakra-ui/react"
+import Router from "./router"
+import Aside from "./components/Aside"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <Grid h="100vh" templateRows="repeat(2, 1fr)" templateColumns="repeat(6, 1fr)">
+      <GridItem rowSpan={2} colSpan={1} bg="gray.800">
+        <Aside />
+      </GridItem>
+      <GridItem colSpan={5} rowSpan={2} bg="gray.900">
+        <Router />
+      </GridItem>
+    </Grid>
   )
 }
-
 export default App
