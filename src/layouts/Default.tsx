@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom"
 import { Grid, GridItem } from "@chakra-ui/react"
-import Router from "../router"
 import Aside from "../components/Aside"
 
 const Default = () => {
@@ -9,7 +8,7 @@ const Default = () => {
       <GridItem rowSpan={2} colSpan={1} bg="gray.800">
         <Aside />
       </GridItem>
-      <GridItem colSpan={5} rowSpan={2} bg="gray.900">
+      <GridItem colSpan={5} rowSpan={2} bg="gray.900" color="white" p={6}>
         <Outlet />
       </GridItem>
     </Grid>

@@ -1,13 +1,29 @@
-import { Link as RouterLink } from "react-router-dom"
-import { Link, Box } from "@chakra-ui/react"
+import { Link as RouterLink, useLocation } from "react-router-dom"
+import { Link, Flex } from "@chakra-ui/react"
 
 const Aside = () => {
+  const { pathname } = useLocation()
+
   return (
-    <Box pt={10}>
-      <Link as={RouterLink} to="/" color="white" pl={6}>
-        Home
+    <Flex direction="column" color="white" my={8}>
+      <Link
+        as={RouterLink}
+        to="/"
+        pl={6}
+        textDecoration={pathname === "/" ? "underline" : ""}
+      >
+        Tasks
       </Link>
-    </Box>
+      <Link
+        as={RouterLink}
+        to="/dailytasks"
+        pl={6}
+        my={8}
+        textDecoration={pathname === "/dailytasks" ? "underline" : ""}
+      >
+        Daily Tasks
+      </Link>
+    </Flex>
   )
 }
 
