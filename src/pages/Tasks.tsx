@@ -11,32 +11,30 @@ import {
 	Slide,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Card from "../components/Card";
-import { Task } from "../types";
 import uniqid from "uniqid";
+import { RootState } from "../store";
+import { addNewTask, setTaskComplete } from "../store/tasksSlice";
 
 const Tasks = () => {
 	const [taskInput, setTaskInput] = useState("");
-	const [tasks, setTasks] = useState<Task[]>([]);
 	const [show, setShow] = useState(false);
+	const tasks = useSelector((state: RootState) => state.tasksState.tasks);
+	const dispatch = useDispatch();
 
 	const addTask = () => {
 		if (taskInput.length !== 0) {
 			const text = taskInput[0].toUpperCase() + taskInput.slice(1).toLowerCase();
 			const id = uniqid();
-			setTasks((prev) => [...prev, { id, text, complete: false }]);
+			dispatch(addNewTask({ id, text, complete: false }));
 			setShow(false);
 			setTaskInput("");
 		} else setShow(true);
 	};
 
-	const complete = (id: string) => {
-		setTasks((prev) => [
-			...prev.map((elem) => {
-				if (elem.id === id) return { ...elem, complete: true };
-				return elem;
-			}),
-		]);
+	const changeComplete = (id: string) => {
+		dispatch(setTaskComplete(id))
 	};
 
 	return (
@@ -74,7 +72,7 @@ const Tasks = () => {
 					</Alert>
 				</Slide>
 				{tasks.map((elem, index) => (
-					<Card cardInfo={elem} key={index} method={complete} />
+					<Card cardInfo={elem} key={index} method={changeComplete} />
 				))}
 			</Box>
 		</>

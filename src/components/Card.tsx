@@ -21,8 +21,7 @@ const Card = ({
 				fontSize="2xl"
 				textDecoration={cardInfo.complete ? "line-through" : "none"}
 			>
-				{" "}
-				{cardInfo.text}{" "}
+				{cardInfo.text}
 			</Text>
 			<Checkbox onChange={() => method(cardInfo.id)}></Checkbox>
 		</Flex>

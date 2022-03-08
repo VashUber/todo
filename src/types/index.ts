@@ -3,3 +3,7 @@ export interface Task {
     text: string
     complete: boolean
 }
+
+export interface TaskState {
+    tasks: Task[]
+}
