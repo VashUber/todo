@@ -15,12 +15,12 @@ export const tasksSlice = createSlice({
 		setTaskComplete: (state, action: PayloadAction<string>) => {
 			state.tasks = state.tasks.map((elem) => {
 				if (elem.id === action.payload) return { ...elem, complete: !elem.complete };
-        return elem
+				return elem;
 			});
 		},
 	},
 });
 
-export const {addNewTask, setTaskComplete} = tasksSlice.actions;
+export const { addNewTask, setTaskComplete } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

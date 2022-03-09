@@ -9,6 +9,7 @@ import {
 	Flex,
 	Input,
 	Slide,
+	Fade,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -34,7 +35,7 @@ const Tasks = () => {
 	};
 
 	const changeComplete = (id: string) => {
-		dispatch(setTaskComplete(id))
+		dispatch(setTaskComplete(id));
 	};
 
 	return (

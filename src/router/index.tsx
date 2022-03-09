@@ -10,7 +10,6 @@ const Router = () => {
             <Route path="*" element={<Navigate to="/404"/>}/>
             <Route path="/" element={<Default/>}>
                 <Route index element={<Tasks/>}/>
-                <Route path="/dailytasks" element={<Tasks/>}/>
             </Route>
             <Route path="/404" element={<Error/>}>
                 <Route index element={<NotFound/>}/>
